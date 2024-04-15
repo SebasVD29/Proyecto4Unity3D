@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool freeze; 
     public enum MovementState
     {
         walking,
@@ -67,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
         StateHandler();
         MovePlayer();
+        if (freeze)
+        {
+            playerRB.velocity = Vector3.zero;
+        }
+    
     }
     //private void FixedUpdate()
     //{
