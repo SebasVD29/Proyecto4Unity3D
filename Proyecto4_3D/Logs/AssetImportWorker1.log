@@ -586,7 +586,7 @@ Start importing Assets/Prefabs/Player.prefab using Guid(1b4f7f1a3d13d214486bd8b4
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 20
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: La operación de E/S se anuló por una salida de subproceso o por una solicitud de aplicación.
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: La operaciï¿½n de E/S se anulï¿½ por una salida de subproceso o por una solicitud de aplicaciï¿½n.
 AssetImportWorker is now disconnected from the server
 Process exiting
 Exiting without the bug reporter. Application will terminate with return code 0
