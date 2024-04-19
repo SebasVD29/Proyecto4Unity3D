@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 3432297041017673189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4889823673333279115}
   - component: {fileID: 315180687128173454}
   - component: {fileID: 2469973651210242414}
-  - component: {fileID: 912433726312844163}
+  - component: {fileID: 8534757778397607634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe80f840a9cfdd478b471ea2c7d87ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &912433726312844163
+--- !u!114 &8534757778397607634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,14 +354,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4980423386493369542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa25a8cc3e671340921bfb8e828a003, type: 3}
+  m_Script: {fileID: 11500000, guid: 241ccb9b4719fd149bbde9a188325174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4860202845787982340}
   attackPoint: {fileID: 1387906797857520431}
-  objectToThrow: {fileID: 5656244615324893264, guid: eae33c49997dc434d8b4504a9edd6ed4, type: 3}
+  objectToThrow: {fileID: 3953194634544308313, guid: 459016b48890abb46a0ef0aa71aa8f2f, type: 3}
   totalThrows: 100
-  throwCoolDown: 0.1
+  throwCooldown: 0.1
   throwKey: 323
   throwForce: 70
   throwUpwardForce: 0
