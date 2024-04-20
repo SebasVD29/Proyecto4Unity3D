@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
         walking,
         sprinting,
         crounching,
+        dashing,
         air
     }
     public MovementState state;
+    private float speedChangeFactor;
+    public bool dashing;
+    private float desiredMoveSpeed;
 
     [Header("Componentes")]
     public Transform orientacion;
@@ -24,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public float dashSpeed;
+    public float dashSpeedChangeFactor;
+    public float maxYSpeed;
+
 
     [Header("Jump")]
     public float jumpForce;
@@ -67,6 +76,12 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
         StateHandler();
         MovePlayer();
+
+        // handle drag
+        if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crounching)
+            playerRB.drag = groundDrag;
+        else
+            playerRB.drag = 0;
     }
     //private void FixedUpdate()
     //{
@@ -76,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
     #region Movement 
     void MovePlayer()
     {
+        if (state == MovementState.dashing) return;
+
         moveDirection = orientacion.forward * inputMove.y + orientacion.right * inputMove.x;
 
         if (OnSlope() && !exitingSlope)
@@ -117,8 +134,10 @@ public class PlayerMovement : MonoBehaviour
                 playerRB.velocity = new Vector3(limitedVel.x, playerRB.velocity.y, limitedVel.z);
             }
         }
+        // limit y vel
+        if (maxYSpeed != 0 && playerRB.velocity.y > maxYSpeed)
+            playerRB.velocity = new Vector3(playerRB.velocity.x, maxYSpeed, playerRB.velocity.z);
 
-        
     }
 
     
@@ -205,29 +224,89 @@ public class PlayerMovement : MonoBehaviour
             playerRB.drag = 0;
         }
     }
-    void StateHandler()
+
+    private float lastDesiredMoveSpeed;
+    private MovementState lastState;
+    private bool keepMomentum;
+
+    private void StateHandler()
     {
-        if (crouchInput)
+        if (dashing)
+        {
+            state = MovementState.dashing;
+            desiredMoveSpeed = dashSpeed;
+            speedChangeFactor = dashSpeedChangeFactor;
+        }
+        else if (crouchInput)
         {
             state = MovementState.crounching;
-            moveSpeed = crouchSpeed;
+            desiredMoveSpeed = crouchSpeed;
 
         }
         else if (grounded && sprintInput)
         {
             state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
+            desiredMoveSpeed = sprintSpeed;
         }
         else if (grounded)
         {
             state = MovementState.walking;
-            moveSpeed = walkSpeed;
+            desiredMoveSpeed = walkSpeed;
         }
         else
         {
             state = MovementState.air;
+
+            if (desiredMoveSpeed < sprintSpeed)
+                desiredMoveSpeed = walkSpeed;
+            else
+                desiredMoveSpeed = sprintSpeed;
         }
+
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+        if (lastState == MovementState.dashing) keepMomentum = true;
+
+        if (desiredMoveSpeedHasChanged)
+        {
+            if (keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
+            }
+            else
+            {
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
+            }
+        }
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
     }
+
+    private IEnumerator SmoothlyLerpMoveSpeed()
+    {
+        // smoothly lerp movementSpeed to desired value
+        float time = 0;
+        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+        float startValue = moveSpeed;
+
+        float boostFactor = speedChangeFactor;
+
+        while (time < difference)
+        {
+            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+
+            time += Time.deltaTime * boostFactor;
+
+            yield return null;
+        }
+
+        moveSpeed = desiredMoveSpeed;
+        speedChangeFactor = 1f;
+        keepMomentum = false;
+    }
+
     private bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeigth * 0.5f + 0.3f))
