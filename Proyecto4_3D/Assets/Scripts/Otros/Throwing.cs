@@ -18,7 +18,7 @@ public class Throwing : MonoBehaviour
 
 
     [Header("Throwing")]
-    public KeyCode throwKey = KeyCode.Mouse0;
+   // public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
     public float throwUpwardForce;
 

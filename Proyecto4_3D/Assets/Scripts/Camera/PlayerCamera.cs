@@ -8,7 +8,6 @@ public class PlayerCamera : MonoBehaviour
 {
     public Vector2 inputDirection;
 
-
     public float sensX;
     public float sensY;
 
@@ -21,7 +20,7 @@ public class PlayerCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     // Update is called once per frame

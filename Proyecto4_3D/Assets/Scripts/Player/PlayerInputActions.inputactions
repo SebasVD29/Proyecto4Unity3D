@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Dashing",
+                    "type": "Button",
+                    "id": "1e0470dc-e30b-4d4c-8790-62dc51a11bfb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -295,7 +304,7 @@
                 {
                     "name": "",
                     "id": "b48c8b4b-18bb-4dda-af60-d98c3909e6e3",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -344,6 +353,28 @@
                     "processors": "",
                     "groups": "Gamepad;Joystick",
                     "action": "Crouch&Sliding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ebc7ba96-f382-4756-b9e7-de9738cc4c9b",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90755458-723e-4ac4-bf8d-9151d67a0be2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dashing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
