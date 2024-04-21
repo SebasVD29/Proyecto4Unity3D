@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Throwing : MonoBehaviour
 {
@@ -30,12 +31,19 @@ public class Throwing : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
+        //if(Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
+        //{
+        //    Throw();
+        //}
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (context.performed && readyToThrow && totalThrows > 0)
         {
             Throw();
         }
     }
-
     private void Throw()
     {
         readyToThrow = false;
