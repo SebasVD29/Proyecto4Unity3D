@@ -66,12 +66,12 @@ public class PlayerMovement : MonoBehaviour
         HandleGrad();
         SpeedControl();
         StateHandler();
+        //MovePlayer();
+    }
+    private void FixedUpdate()
+    {
         MovePlayer();
     }
-    //private void FixedUpdate()
-    //{
-    //    MovePlayer();
-    //}
 
     #region Movement 
     void MovePlayer()
