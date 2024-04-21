@@ -9,9 +9,14 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
+        climbing,
         crounching,
         air
     }
+
+    public bool climbing;
+    public float climbSpeed;
+    
     public MovementState state;
 
     [Header("Componentes")]
@@ -40,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeigth;
     public float groundDrag;
     public LayerMask groundLayer;
-    bool grounded;
+   public bool grounded;
 
     [Header("Slope Handing")]
     public float maxSlopeAngle;
@@ -207,6 +212,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void StateHandler()
     {
+
+        if(climbing){
+            state=MovementState.climbing;
+           moveSpeed=climbSpeed;;
+
+
+        }
         if (crouchInput)
         {
             state = MovementState.crounching;
