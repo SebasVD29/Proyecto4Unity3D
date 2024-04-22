@@ -12,6 +12,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public float sprintSpeed;
     public float slideSpeed;
     public float dashSpeed;
+    public float climbSpeed;
+    public float wallRunningSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -21,13 +23,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     public float groundDrag;
 
-    
-
-
     [Header("Dashing")]
     public float dashSpeedChangeFactor;
     public float maxYSpeed;
-
 
     [Header("Jumping")]
     public float jumpForce;
@@ -48,7 +46,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     [Header("Slope Handling")]
     public float maxSlopeAngle;
@@ -56,10 +54,12 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private bool exitingSlope;
 
     [Header("Componentes")]
+    public Climbing climbingScript;
     public Transform orientation;
     Vector2 inputMove;
     Vector3 moveDirection;
     Rigidbody rb;
+    
     private bool keepMomentum;
     private float speedChangeFactor;
     //float horizontalInput;
@@ -73,6 +73,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
         sprinting,
         crouching,
         sliding,
+        climbing,
+        wallrunning,
         dashing,
         air
     }
@@ -83,6 +85,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     [SerializeField] bool crouchInput = false;
     public bool sliding;
     public bool dashing;
+    public bool wallrunning;
+    public bool climbing;
 
     private void Start()
     {
@@ -162,7 +166,8 @@ public class PlayerMovementAdvanced : MonoBehaviour
     #region MovePlayer
     private void MovePlayer()
     {
-        if (state == MovementState.dashing)
+        
+        if (state == MovementState.dashing || climbingScript.exitingWall)
         {
             return;
         }
@@ -303,8 +308,20 @@ public class PlayerMovementAdvanced : MonoBehaviour
     #region Otros
     private void StateHandler()
     {
+        // Mode - climbing
+        if (climbing)
+        {
+            state = MovementState.climbing;
+            desiredMoveSpeed = climbSpeed;
+        }
+        // Mode - wallrunning
+        else if (wallrunning)
+        {
+            state = MovementState.wallrunning;
+            desiredMoveSpeed = wallRunningSpeed;
+        }
         // Mode - Dashing
-        if (dashing)
+        else if (dashing)
         {
             state = MovementState.dashing;
             desiredMoveSpeed = dashSpeed;

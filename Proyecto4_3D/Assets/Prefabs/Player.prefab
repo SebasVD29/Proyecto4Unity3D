@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 5589034958550984017}
   - component: {fileID: 4142913057408733342}
   - component: {fileID: 9029862421113819247}
+  - component: {fileID: 2427118610407810275}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,7 +302,6 @@ MonoBehaviour:
   objectToThrow: {fileID: 3953194634544308313, guid: 459016b48890abb46a0ef0aa71aa8f2f, type: 3}
   totalThrows: 100
   throwCooldown: 0.1
-  throwKey: 323
   throwForce: 70
   throwUpwardForce: 0
 --- !u!114 &5589034958550984017
@@ -320,8 +320,10 @@ MonoBehaviour:
   sprintSpeed: 10
   slideSpeed: 30
   dashSpeed: 20
-  speedIncreaseMultiplier: 0
-  slopeIncreaseMultiplier: 0
+  climbSpeed: 3
+  wallRunningSpeed: 8.5
+  speedIncreaseMultiplier: 1.5
+  slopeIncreaseMultiplier: 2.5
   groundDrag: 4
   dashSpeedChangeFactor: 50
   maxYSpeed: 0
@@ -334,7 +336,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  grounded: 0
   maxSlopeAngle: 40
+  climbingScript: {fileID: 2427118610407810275}
   orientation: {fileID: 4514236325788468683}
   state: 0
   sprintInput: 0
@@ -342,6 +346,8 @@ MonoBehaviour:
   crouchInput: 0
   sliding: 0
   dashing: 0
+  wallrunning: 0
+  climbing: 0
 --- !u!114 &4142913057408733342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +391,36 @@ MonoBehaviour:
   disableGravity: 1
   resetVel: 1
   dashCd: 1.5
+--- !u!114 &2427118610407810275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980423386493369542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8484a93086e0642198b5882c3f49ea3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 4514236325788468683}
+  rb: {fileID: 315180687128173454}
+  pm: {fileID: 5589034958550984017}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 128
+  climbSpeed: 10
+  maxClimbTime: 0.7
+  climbJumpUpForce: 0
+  climbJumpBackForce: 0
+  climJumpInput: 0
+  climbJumps: 0
+  detectionLength: 0.7
+  sphereCastRadius: 0.25
+  maxWallLookAngle: 30
+  minWallNormalAngleChange: 0
+  exitingWall: 0
+  exitWallTime: 0
 --- !u!1 &7101480423099638842
 GameObject:
   m_ObjectHideFlags: 0
