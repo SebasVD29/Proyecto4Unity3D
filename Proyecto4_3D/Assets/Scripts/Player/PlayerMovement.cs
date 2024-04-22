@@ -10,10 +10,15 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
+        climbing,
         crounching,
         dashing,
         air
     }
+
+    public bool climbing;
+    public float climbSpeed;
+    
     public MovementState state;
     private float speedChangeFactor;
     public bool dashing;
@@ -49,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeigth;
     public float groundDrag;
     public LayerMask groundLayer;
-    bool grounded;
+   public bool grounded;
 
     [Header("Slope Handing")]
     public float maxSlopeAngle;
@@ -238,6 +243,14 @@ public class PlayerMovement : MonoBehaviour
             speedChangeFactor = dashSpeedChangeFactor;
         }
         else if (crouchInput)
+
+        if(climbing){
+            state=MovementState.climbing;
+           moveSpeed=climbSpeed;;
+
+
+        }
+        if (crouchInput)
         {
             state = MovementState.crounching;
             desiredMoveSpeed = crouchSpeed;
