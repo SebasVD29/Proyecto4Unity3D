@@ -116,7 +116,6 @@ public class Climbing : MonoBehaviour
             ClimbJump(); 
         }
     }
-
     private void WallCheck()
     {
         wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out frontWallHit, detectionLength, whatIsWall);
