@@ -67,6 +67,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grappling",
+                    "type": "Button",
+                    "id": "8edec44c-e91c-4aec-8250-1067fa6e1f76",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Swinging",
+                    "type": "Button",
+                    "id": "2f268772-bcbc-4013-9edf-2826f2b73664",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShortCable",
+                    "type": "Button",
+                    "id": "c391e508-638e-4ce3-b0ff-b7c3965d21a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExtendCable",
+                    "type": "Button",
+                    "id": "6e6d7c16-ed1b-4f1f-8284-b9a32241cc63",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -375,6 +411,50 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb768245-310f-467c-8698-b79f8db4b54e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Grappling",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18e67463-aed8-4318-bb01-2769aa89f9dd",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Swinging",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83ce46c3-0f46-4235-909e-4ab7953afff3",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ShortCable",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83cac754-02b4-45d0-aa37-cfe03fe022b1",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ExtendCable",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
