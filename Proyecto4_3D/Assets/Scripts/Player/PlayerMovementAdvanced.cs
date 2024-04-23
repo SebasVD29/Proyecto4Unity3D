@@ -14,6 +14,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public float dashSpeed;
     public float climbSpeed;
     public float wallRunningSpeed;
+    public float vaultSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -70,6 +71,9 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public enum MovementState
     {
         walking,
+        freeze,
+        unlimited,
+        vaulting,
         sprinting,
         crouching,
         sliding,
@@ -87,6 +91,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool dashing;
     public bool wallrunning;
     public bool climbing;
+    public bool vaulting;
+    public bool freeze;
+    public bool unlimited;
+
+    public bool restricted;
 
     private void Start()
     {
@@ -167,7 +176,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
     private void MovePlayer()
     {
         
-        if (state == MovementState.dashing || climbingScript.exitingWall)
+        if (state == MovementState.dashing || climbingScript.exitingWall || restricted)
         {
             return;
         }
@@ -306,8 +315,29 @@ public class PlayerMovementAdvanced : MonoBehaviour
     #endregion
 
     #region Otros
+    
     private void StateHandler()
     {
+        // Mode - freeze
+        if (freeze)
+        {
+            state = MovementState.freeze;
+            rb.velocity = Vector3.zero;
+            desiredMoveSpeed = 0f;
+        }
+        // Mode - unlimited
+        if (unlimited)
+        {
+            state = MovementState.unlimited;
+            desiredMoveSpeed = 999f;
+            return;
+        }
+        // Mode - vaulting
+        if (vaulting)
+        {
+            state = MovementState.vaulting;
+            desiredMoveSpeed = vaultSpeed;
+        }
         // Mode - climbing
         if (climbing)
         {
@@ -335,6 +365,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
             if (OnSlope() && rb.velocity.y < 0.1f)
             {
                 desiredMoveSpeed = slideSpeed;
+                keepMomentum = true;
             }
             else
             {
@@ -399,6 +430,11 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
         lastState = state;
+
+        if (Mathf.Abs(desiredMoveSpeed - moveSpeed) < 0.1f)
+        {
+            keepMomentum = false;
+        }
     }
     private IEnumerator SmoothlyLerpMoveSpeed()
     {

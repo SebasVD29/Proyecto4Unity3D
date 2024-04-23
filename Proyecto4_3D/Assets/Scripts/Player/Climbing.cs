@@ -9,6 +9,7 @@ public class Climbing : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
     public PlayerMovementAdvanced pm;
+    public LedgeGrabbing lg;
     public LayerMask whatIsWall;
     Vector2 inputMove;
     bool forwardInput;
@@ -48,6 +49,7 @@ public class Climbing : MonoBehaviour
     public float exitWallTime;
     private float exitWallTimer;
 
+
     private void Update()
     {
         WallCheck();
@@ -61,8 +63,15 @@ public class Climbing : MonoBehaviour
 
     private void StateMachine()
     {
+        if (lg.holding )
+        {
+            if (climbing)
+            {
+                StopClimbing();
+            }
+        }
         // State 1 - Climbing
-        if (wallFront && forwardInput && wallLookAngle < maxWallLookAngle && !exitingWall)
+        else if (wallFront && forwardInput && wallLookAngle < maxWallLookAngle && !exitingWall)
         {
             if (!climbing && climbTimer > 0)
             {
@@ -171,6 +180,15 @@ public class Climbing : MonoBehaviour
     }
     private void ClimbJump()
     {
+        if (pm.grounded)
+        {
+            return;
+        }
+        if (lg.holding || lg.exitingLedge)
+        {
+            return;
+        }
+
         exitingWall = true;
         exitWallTimer = exitWallTime;
 

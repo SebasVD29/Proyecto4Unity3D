@@ -79,6 +79,8 @@ GameObject:
   - component: {fileID: 4142913057408733342}
   - component: {fileID: 9029862421113819247}
   - component: {fileID: 2427118610407810275}
+  - component: {fileID: 5846429433305582985}
+  - component: {fileID: 4264672364029539074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -131,9 +133,45 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 5589034958550984017}
+        m_TargetAssemblyTypeName: PlayerMovementAdvanced, Assembly-CSharp
         m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4142913057408733342}
+        m_TargetAssemblyTypeName: Sliding, Assembly-CSharp
+        m_MethodName: MoveSliding
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9029862421113819247}
+        m_TargetAssemblyTypeName: Dashing, Assembly-CSharp
+        m_MethodName: MoveDashing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2427118610407810275}
+        m_TargetAssemblyTypeName: Climbing, Assembly-CSharp
+        m_MethodName: MoveClimbing
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -150,14 +188,38 @@ MonoBehaviour:
     m_ActionId: a6115dc3-a138-4526-b546-389057853913
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8534757778397607634}
+        m_TargetAssemblyTypeName: Throwing, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3862ba84-bbdd-4bfa-9342-9996e0b6ff12
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 5589034958550984017}
+        m_TargetAssemblyTypeName: PlayerMovementAdvanced, Assembly-CSharp
         m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2427118610407810275}
+        m_TargetAssemblyTypeName: Climbing, Assembly-CSharp
+        m_MethodName: ClimbJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -211,8 +273,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 5589034958550984017}
+        m_TargetAssemblyTypeName: PlayerMovementAdvanced, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
         m_Arguments:
@@ -227,9 +289,21 @@ MonoBehaviour:
     m_ActionName: Player/Sprint[/Keyboard/shift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 5589034958550984017}
+        m_TargetAssemblyTypeName: PlayerMovementAdvanced, Assembly-CSharp
         m_MethodName: Crouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4142913057408733342}
+        m_TargetAssemblyTypeName: Sliding, Assembly-CSharp
+        m_MethodName: Slid
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -241,6 +315,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f8ff081d-1776-4a3c-96f8-a96ad82617be
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9029862421113819247}
+        m_TargetAssemblyTypeName: Dashing, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1e0470dc-e30b-4d4c-8790-62dc51a11bfb
+    m_ActionName: Player/Dashing[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -322,6 +412,7 @@ MonoBehaviour:
   dashSpeed: 20
   climbSpeed: 3
   wallRunningSpeed: 8.5
+  vaultSpeed: 0
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5
   groundDrag: 4
@@ -348,6 +439,10 @@ MonoBehaviour:
   dashing: 0
   wallrunning: 0
   climbing: 0
+  vaulting: 0
+  freeze: 0
+  unlimited: 0
+  restricted: 0
 --- !u!114 &4142913057408733342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,21 +501,78 @@ MonoBehaviour:
   orientation: {fileID: 4514236325788468683}
   rb: {fileID: 315180687128173454}
   pm: {fileID: 5589034958550984017}
+  lg: {fileID: 0}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 128
   climbSpeed: 10
   maxClimbTime: 0.7
-  climbJumpUpForce: 0
-  climbJumpBackForce: 0
+  climbJumpUpForce: 14
+  climbJumpBackForce: 12
   climJumpInput: 0
-  climbJumps: 0
+  climbJumps: 1
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
-  minWallNormalAngleChange: 0
+  minWallNormalAngleChange: 5
   exitingWall: 0
-  exitWallTime: 0
+  exitWallTime: 0.2
+--- !u!114 &5846429433305582985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980423386493369542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4110f2c49983e4ee38a19dad90b1b5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pm: {fileID: 5589034958550984017}
+  orientation: {fileID: 4514236325788468683}
+  cam: {fileID: 0}
+  rb: {fileID: 315180687128173454}
+  moveToLedgeSpeed: 12
+  maxLedgeGrabDistance: 2
+  minTimeOnLedge: 0.5
+  holding: 0
+  ledgeJumpInput: 0
+  ledgeJumpForwardForce: 0
+  ledgeJumpUpwardForce: 0
+  ledgeDetectionLength: 3
+  ledgeSphereCastRadius: 0.5
+  whatIsLedge:
+    serializedVersion: 2
+    m_Bits: 256
+  exitingLedge: 0
+  exitLedgeTime: 0
+--- !u!114 &4264672364029539074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980423386493369542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283937c458ff8ae4085791990e7a671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  wallRunForce: 200
+  wallJumpUpForce: 7
+  wallJumpSideForce: 12
+  maxWallRunTime: 0.7
+  wallCheckDistance: 0.7
+  minJumpHeight: 2
+  exitWallRunTime: 0.2
+  orientation: {fileID: 4514236325788468683}
 --- !u!1 &7101480423099638842
 GameObject:
   m_ObjectHideFlags: 0
