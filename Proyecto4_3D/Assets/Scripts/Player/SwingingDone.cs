@@ -43,14 +43,14 @@ public class SwingingDone : MonoBehaviour
 
     private void Update()
     {
-        if (swingingInput) 
-        { 
-            StartSwing();
-        }
-        else
-        {
-            StopSwing();
-        }
+        //if (swingingInput) 
+        //{ 
+        //    StartSwing();
+        //}
+        //if(!swingingInput)
+        //{
+        //    StopSwing();
+        //}
         
         CheckForSwingPoints();
 
@@ -68,10 +68,12 @@ public class SwingingDone : MonoBehaviour
     {
         if (context.performed)
         {
+            StartSwing();
             swingingInput = true;
         }
         if (context.canceled)
         {
+            StopSwing();
             swingingInput = false;
         }
     }
@@ -254,7 +256,10 @@ public class SwingingDone : MonoBehaviour
     private void DrawRope()
     {
         // if not grappling, don't draw rope
-        if (!joint) return;
+        if (!joint) 
+        { 
+            return; 
+        }
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, swingPoint, Time.deltaTime * 8f);
 

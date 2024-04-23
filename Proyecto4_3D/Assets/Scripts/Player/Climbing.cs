@@ -60,7 +60,6 @@ public class Climbing : MonoBehaviour
             ClimbingMovement(); 
         }
     }
-
     private void StateMachine()
     {
         if (lg.holding )
@@ -111,10 +110,10 @@ public class Climbing : MonoBehaviour
                 StopClimbing(); 
             }
         }
-        if (wallFront && climJumpInput && climbJumpsLeft > 0) 
-        { 
-            ClimbJump(); 
-        }
+        //if (wallFront && climJumpInput && climbJumpsLeft > 0) 
+        //{ 
+        //    ClimbJump(); 
+        //}
     }
     private void WallCheck()
     {
@@ -130,11 +129,12 @@ public class Climbing : MonoBehaviour
             climbJumpsLeft = climbJumps;
         }
     }
-    public void ClimbJump(InputAction.CallbackContext context)
+    public void ClimbJumpPlayer(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && wallFront  && climbJumpsLeft > 0)
         {
             climJumpInput = true;
+            ClimbJump();
         }
         if (context.canceled)
         {

@@ -58,6 +58,7 @@ public class Grappling : MonoBehaviour
     {
         if (context.performed)
         {
+            StartGrapple();
             grappInput = true;
         }
         if (context.canceled)

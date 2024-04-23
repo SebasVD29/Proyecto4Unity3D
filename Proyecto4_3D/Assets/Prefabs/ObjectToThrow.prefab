@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9205746248587549840}
   - component: {fileID: 4579777701660328595}
   - component: {fileID: 7279553357182610841}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ObjectToThrow
-  m_TagString: Untagged
+  m_TagString: shoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

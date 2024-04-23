@@ -82,10 +82,15 @@ public class WallRunning : MonoBehaviour
     }
     public void WallRunningJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if ((wallRight || wallLeft) && inputMove.y > 0 && AboveGround() && !exitingWallRun)
         {
-            wallRunJumpInput = true;
+            if (context.performed )
+            {
+                wallRunJumpInput = true;
+                WallJump();
+            }
         }
+        
         if (context.canceled)
         {
             wallRunJumpInput = false;

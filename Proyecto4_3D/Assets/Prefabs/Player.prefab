@@ -184,9 +184,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5273046982287709338}
-        m_TargetAssemblyTypeName: SwingingDone, Assembly-CSharp
-        m_MethodName: MoveSwinging
+      - m_Target: {fileID: 5846429433305582985}
+        m_TargetAssemblyTypeName: LedgeGrabbing, Assembly-CSharp
+        m_MethodName: MoveLedge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4264672364029539074}
+        m_TargetAssemblyTypeName: WallRunning, Assembly-CSharp
+        m_MethodName: MoveWallRunning
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -234,7 +246,31 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2427118610407810275}
         m_TargetAssemblyTypeName: Climbing, Assembly-CSharp
-        m_MethodName: ClimbJump
+        m_MethodName: ClimbJumpPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5846429433305582985}
+        m_TargetAssemblyTypeName: LedgeGrabbing, Assembly-CSharp
+        m_MethodName: LedgeJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4264672364029539074}
+        m_TargetAssemblyTypeName: WallRunning, Assembly-CSharp
+        m_MethodName: WallRunningJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -470,8 +506,8 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   objectToThrow: {fileID: 3953194634544308313, guid: 459016b48890abb46a0ef0aa71aa8f2f, type: 3}
   totalThrows: 100
-  throwCooldown: 0.1
-  throwForce: 70
+  throwCooldown: 0.5
+  throwForce: 50
   throwUpwardForce: 0
 --- !u!114 &5589034958550984017
 MonoBehaviour:
@@ -583,7 +619,7 @@ MonoBehaviour:
   orientation: {fileID: 4514236325788468683}
   rb: {fileID: 315180687128173454}
   pm: {fileID: 5589034958550984017}
-  lg: {fileID: 0}
+  lg: {fileID: 5846429433305582985}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 128
@@ -595,7 +631,7 @@ MonoBehaviour:
   climbJumps: 1
   detectionLength: 0.7
   sphereCastRadius: 0.25
-  maxWallLookAngle: 30
+  maxWallLookAngle: 40
   minWallNormalAngleChange: 5
   exitingWall: 0
   exitWallTime: 0.2
@@ -620,15 +656,15 @@ MonoBehaviour:
   minTimeOnLedge: 0.5
   holding: 0
   ledgeJumpInput: 0
-  ledgeJumpForwardForce: 0
-  ledgeJumpUpwardForce: 0
+  ledgeJumpForwardForce: 14
+  ledgeJumpUpwardForce: 5
   ledgeDetectionLength: 3
   ledgeSphereCastRadius: 0.5
   whatIsLedge:
     serializedVersion: 2
     m_Bits: 256
   exitingLedge: 0
-  exitLedgeTime: 0
+  exitLedgeTime: 0.2
 --- !u!114 &4264672364029539074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,11 +683,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  wallRunForce: 200
+  wallRunForce: 300
   wallJumpUpForce: 7
   wallJumpSideForce: 12
   maxWallRunTime: 0.7
-  wallCheckDistance: 0.7
+  wallCheckDistance: 1
   minJumpHeight: 2
   exitWallRunTime: 0.2
   orientation: {fileID: 4514236325788468683}
