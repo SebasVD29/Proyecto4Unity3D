@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 4889823673333279115}
   - component: {fileID: 315180687128173454}
   - component: {fileID: 2469973651210242414}
+  - component: {fileID: 2296572110895005801}
+  - component: {fileID: 496848305430194752}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3d3bd748ea65048b17d7b27dba577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freeze: 0
   state: 0
   orientacion: {fileID: 4514236325788468683}
   moveSpeed: 0
@@ -312,6 +315,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe80f840a9cfdd478b471ea2c7d87ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2296572110895005801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980423386493369542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84c9db37070c364cab483a4fa3486a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 10
+  sprintSpeed: 10
+  swingSpeed: 15
+  groundDrag: 0
+  jumpForce: 0
+  jumpCooldown: 0
+  airMultiplier: 0
+  crouchSpeed: 0
+  crouchYScale: 0
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  maxSlopeAngle: 0
+  cam: {fileID: 0}
+  grappleFov: 95
+  orientation: {fileID: 0}
+  state: 0
+  freeze: 0
+  activeGrapple: 0
+  swinging: 1
+  text_speed: {fileID: 0}
+  text_mode: {fileID: 0}
+--- !u!114 &496848305430194752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980423386493369542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9888c2863990d4b9e45e1ea742e4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  gunTip: {fileID: 0}
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lr: {fileID: 0}
+  maxGrappleDistance: 25
+  grappleDelayTime: 0.25
+  overshootYAxis: 0
+  grapplingCd: 0
+  grappleKey: 324
 --- !u!1 &7101480423099638842
 GameObject:
   m_ObjectHideFlags: 0

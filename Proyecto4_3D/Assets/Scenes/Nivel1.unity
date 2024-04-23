@@ -525,72 +525,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!1 &743210171 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4980423386493369542, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
-  m_PrefabInstance: {fileID: 945110506}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &743210173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743210171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f9888c2863990d4b9e45e1ea742e4a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 462160463}
-  gunTip: {fileID: 2124323631}
-  whatIsGrappleable:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  lr: {fileID: 2124323635}
-  maxGrappleDistance: 25
-  grappleDelayTime: 0.25
-  overshootYAxis: 0
-  grapplingCd: 0
-  grappleKey: 324
---- !u!114 &743210174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743210171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84c9db37070c364cab483a4fa3486a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 10
-  sprintSpeed: 10
-  swingSpeed: 15
-  groundDrag: 0
-  jumpForce: 0
-  jumpCooldown: 0
-  airMultiplier: 0
-  crouchSpeed: 0
-  crouchYScale: 0
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  playerHeight: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  maxSlopeAngle: 0
-  cam: {fileID: 0}
-  grappleFov: 95
-  orientation: {fileID: 0}
-  state: 0
-  freeze: 0
-  activeGrapple: 0
-  swinging: 1
-  text_speed: {fileID: 0}
-  text_mode: {fileID: 0}
 --- !u!1001 &756449139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,6 +689,18 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 496848305430194752, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
+      propertyPath: lr
+      value: 
+      objectReference: {fileID: 2124323635}
+    - target: {fileID: 496848305430194752, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 462160463}
+    - target: {fileID: 496848305430194752, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
+      propertyPath: gunTip
+      value: 
+      objectReference: {fileID: 2124323631}
     - target: {fileID: 3325464722148955751, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44
@@ -829,16 +775,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4860202845787982340, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2124323631}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4980423386493369542, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 743210174}
-    - targetCorrespondingSourceObject: {fileID: 4980423386493369542, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 743210173}
-    - targetCorrespondingSourceObject: {fileID: 7101480423099638842, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 235238318}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
 --- !u!1 &950612735
 GameObject:

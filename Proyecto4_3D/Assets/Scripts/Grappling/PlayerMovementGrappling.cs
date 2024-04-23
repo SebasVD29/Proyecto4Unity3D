@@ -270,7 +270,7 @@ public class PlayerMovementGrappling : MonoBehaviour
         enableMovementOnNextTouch = true;
         rb.velocity = velocityToSet;
 
-       // cam.DoFov(grappleFov);
+        // cam.DoFov(grappleFov);
     }
 
     public void ResetRestrictions()
