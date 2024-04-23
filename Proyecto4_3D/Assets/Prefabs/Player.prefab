@@ -527,7 +527,7 @@ MonoBehaviour:
   dashSpeed: 20
   climbSpeed: 3
   wallRunningSpeed: 8.5
-  swingSpeed: 0
+  swingSpeed: 20
   vaultSpeed: 0
   speedIncreaseMultiplier: 1.5
   slopeIncreaseMultiplier: 2.5

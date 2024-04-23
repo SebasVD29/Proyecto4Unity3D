@@ -3825,10 +3825,6 @@ PrefabInstance:
       propertyPath: predictionPoint
       value: 
       objectReference: {fileID: 558494423}
-    - target: {fileID: 5589034958550984017, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
-      propertyPath: swingSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5846429433305582985, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
       propertyPath: cam
       value: 
@@ -3849,6 +3845,10 @@ PrefabInstance:
       propertyPath: overshootYAxis
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8534757778397607634, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1166665672}
     - target: {fileID: 8534757778397607634, guid: 1b4f7f1a3d13d214486bd8b4983a3846, type: 3}
       propertyPath: attackPoint
       value: 
